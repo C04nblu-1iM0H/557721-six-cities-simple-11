@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
+import {useState} from 'react';
 import {Helmet} from 'react-helmet-async';
 import {useParams} from 'react-router-dom';
 import NotFoundScreen from '../../pages/not-fount-screen/not-found-screen';
@@ -6,7 +6,7 @@ import HeaderLogo from '../../components/headerLogo/headerLogo';
 import {OfferType} from '../../types/offer';
 import {Review} from '../../types/review';
 import Reviews from '../../components/reviews/reviews';
-import {calculateRating} from '../../components/function/settings';
+import {calculateStarRating} from '../../utils/utils';
 import OfferCards from '../../components/OfferCards/OfferCards';
 import Map from '../../components/map/map';
 
@@ -16,6 +16,10 @@ type Offers = {
 }
 
 function RoomScreen({offers, reviews}: Offers): JSX.Element {
+  const [activeCard, setActiveCard] = useState<OfferType | undefined>(undefined);
+  const handleActiveCard = (card: OfferType):void => {
+    setActiveCard(card);
+  };
   const params = useParams();
   const presentOffer = offers.find((vl)=> vl.id.toString() === params.id);
   if (!presentOffer) {
@@ -37,6 +41,7 @@ function RoomScreen({offers, reviews}: Offers): JSX.Element {
   const conveniences = insides.map((inside) =>(
     <li className="property__inside-item" key={inside}>{inside}</li>
   ));
+
   const nextOffers = offers.filter((offer)=>offer.id !== presentOffer.id);
 
   return(
@@ -90,7 +95,7 @@ function RoomScreen({offers, reviews}: Offers): JSX.Element {
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
-                  <span style={{width: `${calculateRating(rating)}% `}}></span>
+                  <span style={{width: `${calculateStarRating(rating)}% `}}></span>
                   <span className="visually-hidden">Rating</span>
                 </div>
                 <span className="property__rating-value rating__value">{rating}</span>
@@ -135,7 +140,7 @@ function RoomScreen({offers, reviews}: Offers): JSX.Element {
             </div>
           </div>
           <section className="property__map map">
-            <Map offers={nextOffers} activeCard={presentOffer} city={presentOffer.city} newMap="property"/>
+            <Map offers={nextOffers} activeCard={activeCard} city={presentOffer.city} newMap="property"/>
           </section>
         </section>
         <div className="container">
@@ -144,7 +149,7 @@ function RoomScreen({offers, reviews}: Offers): JSX.Element {
             <div className="near-places__list places__list">
               {
                 nextOffers.map((nextOffer) =>(
-                  <article className="near-places__card place-card" key={nextOffer.id}>
+                  <article className="near-places__card place-card" key={nextOffer.id} onMouseOver={() => handleActiveCard(nextOffer)}>
                     <OfferCards offer={nextOffer} newCard="near-places"/>
                   </article>))
               }

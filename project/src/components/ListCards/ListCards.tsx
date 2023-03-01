@@ -6,11 +6,12 @@ import {City} from '../../types/city';
 
 type Offers = {
     offers: OfferType[];
-    city: City;
+    currentCity: City;
 }
 
-function ListCards({offers, city}:Offers): JSX.Element {
+function ListCards({offers, currentCity}:Offers): JSX.Element {
   const [activeCard, setActiveCard] = useState<OfferType | undefined>(undefined);
+
   const handleActiveCard = (card: OfferType):void => {
     setActiveCard(card);
   };
@@ -20,7 +21,7 @@ function ListCards({offers, city}:Offers): JSX.Element {
       <div className="cities__places-container container">
         <section className="cities__places places">
           <h2 className="visually-hidden">Places</h2>
-          <b className="places__found"> places to stay in Amsterdam</b>
+          <b className="places__found"> places to stay in {currentCity.name}</b>
           <form className="places__sorting" action="#" method="get">
             <span className="places__sorting-caption">Sort by</span>
             <span className="places__sorting-type" tabIndex={0}>
@@ -45,7 +46,7 @@ function ListCards({offers, city}:Offers): JSX.Element {
           </div>
         </section>
         <div className="cities__right-section">
-          <Map offers={offers} activeCard={activeCard} city={city} newMap="cities"/>
+          <Map offers={offers} activeCard={activeCard} city={currentCity} newMap="cities"/>
         </div>
       </div>
     </div>

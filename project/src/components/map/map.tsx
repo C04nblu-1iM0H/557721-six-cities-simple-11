@@ -47,7 +47,7 @@ function Map({offers, activeCard, city, newMap}: PageProps): JSX.Element {
           .addTo(map);
       });
     }
-  }, [map, offers, activeCard]);
+  }, [map, offers, activeCard, location]);
   return <section className={`${newMap}__map map`} ref={mapRef}></section>;
 
 }

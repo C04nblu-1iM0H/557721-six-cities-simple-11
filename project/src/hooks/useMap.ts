@@ -14,7 +14,7 @@ function useMap(mapRef: React.MutableRefObject<HTMLElement | null>, location: Lo
           lat: location.latitude,
           lng: location.longitude,
         },
-        zoom: location.zoom
+        zoom: 13
       });
 
       const layer = new TileLayer(
