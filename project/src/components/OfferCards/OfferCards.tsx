@@ -6,15 +6,16 @@ import {calculateRating} from '../function/settings';
 
 type Offers = {
   offer: OfferType;
+  newCard:string;
 }
 
-function OfferCards({offer}: Offers): JSX.Element {
+function OfferCards({offer, newCard}: Offers): JSX.Element {
   const {title, price, typeOfplacement, previewImage, rating, isPremium, id} = offer;
   return(
     <React.Fragment>
       { isPremium ? <div className="place-card__mark"><span>Premium</span></div> : ''}
 
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${newCard}__image-wrapper place-card__image-wrapper`}>
         <Link to={`/offer/${id}`}>
           <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place" />
         </Link>

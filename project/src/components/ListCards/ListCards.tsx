@@ -6,26 +6,22 @@ import {City} from '../../types/city';
 
 type Offers = {
     offers: OfferType[];
-    city: City;
+    currentCity: City;
 }
 
-function ListCards({offers, city}:Offers): JSX.Element {
+function ListCards({offers, currentCity}:Offers): JSX.Element {
   const [activeCard, setActiveCard] = useState<OfferType | undefined>(undefined);
+
   const handleActiveCard = (card: OfferType):void => {
     setActiveCard(card);
   };
-
-  const componentOffer = offers.map((offer) => (
-    <article className="cities__card place-card" key={offer.id} onMouseOver={() => handleActiveCard(offer)}>
-      <OfferCards offer={offer}/>
-    </article>));
 
   return(
     <div className="cities">
       <div className="cities__places-container container">
         <section className="cities__places places">
           <h2 className="visually-hidden">Places</h2>
-          <b className="places__found"> places to stay in Amsterdam</b>
+          <b className="places__found"> places to stay in {currentCity.name}</b>
           <form className="places__sorting" action="#" method="get">
             <span className="places__sorting-caption">Sort by</span>
             <span className="places__sorting-type" tabIndex={0}>
@@ -34,21 +30,23 @@ function ListCards({offers, city}:Offers): JSX.Element {
                 <use xlinkHref="#icon-arrow-select" />
               </svg>
             </span>
-            <ul className="places__options places__options--custom places__options--opened">
+            <ul className="places__options places__options--custom places__options--closed">
               <li className="places__option places__option--active" tabIndex={0}>Popular</li>
               <li className="places__option" tabIndex={0}>Price: low to high</li>
               <li className="places__option" tabIndex={0}>Price: high to low</li>
               <li className="places__option" tabIndex={0}>Top rated first</li>
             </ul>
           </form>
-          <div className="cities__places-list places__list tabs__content">
-            {componentOffer}
+          <div className="cities__places-list places__list tabs__content">{
+            offers.map((offer) => (
+              <article className="cities__card place-card" key={offer.id} onMouseOver={() => handleActiveCard(offer)}>
+                <OfferCards offer={offer} newCard="cities"/>
+              </article>))
+          }
           </div>
         </section>
         <div className="cities__right-section">
-          <section className="cities__map map">
-            <Map offers={offers} activeCard={activeCard} city={city}/>
-          </section>
+          <Map offers={offers} activeCard={activeCard} city={currentCity} newMap="cities"/>
         </div>
       </div>
     </div>

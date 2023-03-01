@@ -5,8 +5,8 @@ export const offers: OfferType[] = [
     id:1,
     city: {
       location: {
-        lat: 52.370216,
-        lng: 4.895168,
+        latitude: 52.3763943,
+        longitude: 4.900419,
         zoom: 10,
       },
       name: 'Amsterdam',
@@ -18,6 +18,7 @@ export const offers: OfferType[] = [
       'https://cdn.worldota.net/t/1024x768/content/55/ba/55ba17447b26e8b27085362aa9255b141bc35f7d.jpeg',
       'https://cdn.worldota.net/t/1024x768/content/48/af/48af6291128e0fb8bf5086684537e174b3302c4c.jpeg',
       'https://cdn.worldota.net/t/1024x768/content/66/22/6622ee2cdee4f0f5a5bbbbc7f6d4bcb273f0e264.jpeg',
+      'https://cdn.worldota.net/t/1024x768/content/b8/85/b885f754352a6f2bc11b494a36d4937f45eee2ab.jpeg'
     ],
     isPremium: true,
     title:'NH Collection Amsterdam Barbizon Palace',
@@ -41,15 +42,15 @@ export const offers: OfferType[] = [
     location: {
       latitude: 52.3763943,
       longitude: 4.900419,
-      zoom: 6,
+      zoom: 10,
     }
   },
   {
     id:2,
     city: {
       location: {
-        lat: 52.370216,
-        lng: 4.895168,
+        latitude: 52.372805,
+        longitude: 4.889829,
         zoom: 10,
       },
       name: 'Amsterdam',
@@ -59,7 +60,8 @@ export const offers: OfferType[] = [
       'https://cdn.worldota.net/t/1024x768/content/8c/01/8c011a0295895b2ca1c7d96d1311d9bada4330dd.jpeg',
       'https://cdn.worldota.net/t/1024x768/content/d2/0b/d20b8043a4740b550078c8dfc4079ea2704a41e6.jpeg',
       'https://cdn.worldota.net/t/1024x768/content/4d/bc/4dbc4234346d1795428246c2f789732cc108fd30.jpeg',
-      'https://cdn.worldota.net/t/1024x768/content/fb/90/fb9025e1d1a4f60031b3a2bbb4eb554ba9749742.jpeg'
+      'https://cdn.worldota.net/t/1024x768/content/fb/90/fb9025e1d1a4f60031b3a2bbb4eb554ba9749742.jpeg',
+      'https://cdn.worldota.net/t/1024x768/content/1f/87/1f8727c616e179851cf5dc3cccbb32a21b4e9d2b.jpeg'
     ],
     isPremium: true,
     previewImage: 'https://cdn.worldota.net/t/1024x768/content/3c/12/3c12db0a13ead53d3f2d3acf4adea13ef14f381b.jpeg',
@@ -80,7 +82,7 @@ export const offers: OfferType[] = [
       isPro: true,
       name:'Entier',
     },
-    description:'Пятизвездочный отель NH Barbizon Palace располагается напротив железнодорожного вокзала в самом центре Амстердама. Такие достопримечательности, как церковь Святого Николая, Общественная Амстердамская библиотека и площадь Дам, находятся в нескольких минутах ходьбы от отеля.',
+    description:'Вот он — отель мечты: отель «W Amsterdam» находится в Амстердаме. Этот отель располагается неподалёку от центра города. Рядом с отелем — Королевский дворец, Новая церковь и Площадь Дам',
     location: {
       latitude: 52.372805,
       longitude: 4.889829,
@@ -91,8 +93,8 @@ export const offers: OfferType[] = [
     id:3,
     city: {
       location: {
-        lat: 52.370216,
-        lng: 4.895168,
+        latitude: 52.361531,
+        longitude: 4.882910,
         zoom: 10,
       },
       name: 'Amsterdam',
@@ -102,7 +104,8 @@ export const offers: OfferType[] = [
       'https://cdn.worldota.net/t/1024x768/content/1a/7d/1a7df3075f7e607c3d10048979d9a4f3a9598a03.jpeg',
       'https://cdn.worldota.net/t/1024x768/content/f1/94/f194193e9af35e03bf768a369028ca5fec09d66f.jpeg',
       'https://cdn.worldota.net/t/1024x768/content/24/c8/24c84caa41ba4ffab61f30fb3f3fe8a89f350373.jpeg',
-      'https://cdn.worldota.net/t/1024x768/content/12/f7/12f7d41fd13b8bb0d8422e5a826d27b81bc1ca72.jpeg'
+      'https://cdn.worldota.net/t/1024x768/content/12/f7/12f7d41fd13b8bb0d8422e5a826d27b81bc1ca72.jpeg',
+      'https://cdn.worldota.net/t/1024x768/content/90/89/90895c87ea913d3ed58f44b9be38c7e8004725db.jpeg'
     ],
     isPremium: false,
     previewImage: 'https://cdn.worldota.net/t/1024x768/content/0c/da/0cdaaadb26425de20bd0c48aeb56a8bea8b3e02c.jpeg',
@@ -123,7 +126,7 @@ export const offers: OfferType[] = [
       isPro: false,
       name:'Eve',
     },
-    description:'Пятизвездочный отель NH Barbizon Palace располагается напротив железнодорожного вокзала в самом центре Амстердама. Такие достопримечательности, как церковь Святого Николая, Общественная Амстердамская библиотека и площадь Дам, находятся в нескольких минутах ходьбы от отеля.',
+    description:'Отель Park Hotel Amsterdam расположен в элитном районе Амстердама. В 500 метрах от отеля находится Государственный музей и музей Ван Гога',
     location: {
       latitude: 52.361531,
       longitude: 4.882910,
@@ -134,8 +137,8 @@ export const offers: OfferType[] = [
     id:4,
     city: {
       location: {
-        lat: 52.370216,
-        lng: 4.895168,
+        latitude: 52.370213,
+        longitude: 4.903213,
         zoom: 10,
       },
       name: 'Amsterdam',
@@ -167,7 +170,7 @@ export const offers: OfferType[] = [
       isPro: true,
       name:'Emma',
     },
-    description:'Пятизвездочный отель NH Barbizon Palace располагается напротив железнодорожного вокзала в самом центре Амстердама. Такие достопримечательности, как церковь Святого Николая, Общественная Амстердамская библиотека и площадь Дам, находятся в нескольких минутах ходьбы от отеля.',
+    description:'Мечтаешь о первоклассном отеле? Добро пожаловать в отель «Luxury Suites Amsterdam» находится в Амстердаме. Этот отель располагается в центре города. Перед сном есть возможность прогуляться вдоль главных достопримечательностей. Рядом с отелем можно прогуляться. Неподалёку: Ниумаркт, Блошиный рынок Ватерлооплейн и Стопера',
     location: {
       latitude: 52.370213,
       longitude: 4.903213,
@@ -178,8 +181,8 @@ export const offers: OfferType[] = [
     id:5,
     city: {
       location: {
-        lat: 52.370216,
-        lng: 4.895168,
+        latitude: 52.370911,
+        longitude: 4.895519,
         zoom: 10,
       },
       name: 'Amsterdam',
@@ -211,7 +214,7 @@ export const offers: OfferType[] = [
       isPro: true,
       name:'Julia',
     },
-    description:'Пятизвездочный отель NH Barbizon Palace располагается напротив железнодорожного вокзала в самом центре Амстердама. Такие достопримечательности, как церковь Святого Николая, Общественная Амстердамская библиотека и площадь Дам, находятся в нескольких минутах ходьбы от отеля.',
+    description:'Отель «Sofitel Legend The Grand Amsterdam» расположен в самом центре города. Отель расположен между двумя историческими каналами в самом центре города и может похвастаться богатой историей. Неподалёку: Площадь Дам, Королевский дворец и Ниумаркт.',
     location: {
       latitude: 52.370911,
       longitude: 4.895519,
@@ -222,8 +225,8 @@ export const offers: OfferType[] = [
     id:6,
     city: {
       location: {
-        lat: 52.370216,
-        lng: 4.895168,
+        latitude: 52.377007,
+        longitude: 4.897850,
         zoom: 10,
       },
       name: 'Amsterdam',
@@ -233,7 +236,8 @@ export const offers: OfferType[] = [
       'https://cdn.worldota.net/t/1024x768/content/57/4c/574c97038db8a9d90deeb04862554403f02ef880.jpeg',
       'https://cdn.worldota.net/t/1024x768/content/1f/44/1f441f78e6dff6a1c7b04b6ebe370ccaf96eba7a.jpeg',
       'https://cdn.worldota.net/t/1024x768/content/4c/6e/4c6eacdc27d1bd771b52f7ff032ebb2ef87a697a.jpeg',
-      'https://cdn.worldota.net/t/1024x768/content/a7/90/a79030d845aff4bd1c06cfc4ac4e36002608a6ed.jpeg'
+      'https://cdn.worldota.net/t/1024x768/content/a7/90/a79030d845aff4bd1c06cfc4ac4e36002608a6ed.jpeg',
+      'https://cdn.worldota.net/t/1024x768/content/e4/bd/e4bd0b32867d6f270fbc0709ba8aa96da048b4b9.jpeg'
     ],
     isPremium: false,
     previewImage: 'https://cdn.worldota.net/t/1024x768/content/db/b7/dbb71dc202e03bd015f2f83439f9d9dfe4f7d67d.jpeg',
@@ -254,11 +258,51 @@ export const offers: OfferType[] = [
       isPro: false,
       name:'Sara',
     },
-    description:'Пятизвездочный отель NH Barbizon Palace располагается напротив железнодорожного вокзала в самом центре Амстердама. Такие достопримечательности, как церковь Святого Николая, Общественная Амстердамская библиотека и площадь Дам, находятся в нескольких минутах ходьбы от отеля.',
+    description:'Четырехзвездочный отель Park Plaza Victoria располагается в самом центре Амстердама напротив здания центрального железнодорожного вокзала. От аэропорта Схипхол до отеля вы доберетесь за 20 минут езды на автомобиле.',
     location: {
       latitude: 52.377007,
       longitude: 4.897850,
       zoom: 6,
+    }
+  },
+  {
+    id:7,
+    city: {
+      location: {
+        latitude: 48.85341,
+        longitude: 2.3488,
+        zoom: 10,
+      },
+      name: 'Paris',
+    },
+    images: ['https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/cb/6e/stairs.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/cb/af/breakfast-room.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/c4/cd/superior-double-room.jpg?w=1200&h=-1&s=1'
+    ],
+    isPremium: false,
+    previewImage: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/75/0b/ac/location-madison-hotel.jpg?w=1200&h=-1&s=1',
+    price:673,
+    rating: 4,
+    title:'Hotel Malte - Astotel',
+    typeOfplacement:'Hotel',
+    bedrooms:2,
+    maxAduts:5,
+    insides:[
+      'Wifi','Transfer','Parking space','Heating','Kitchen','Fridge',
+      'Washing machine','Coffee machine','Dishwasher', 'Shower/Bath',
+      'Mini-bar','TV','Cable TV','Fan','Wardrobe/Closet', 'Non-smoking rooms'
+    ],
+    host:{
+      avatar:'https://i.pinimg.com/564x/c7/ad/85/c7ad851ccc736e96814fa3c595fcba88.jpg',
+      id:7,
+      isPro: false,
+      name:'Mary',
+    },
+    description:'Whether you want to shop in the heart of the department store neighbourhood or visit one of the main business centres of Paris, Malta Hotel is the place to be.',
+    location: {
+      latitude: 48.75341,
+      longitude: 2.3688,
+      zoom: 8,
     }
   },
 ];

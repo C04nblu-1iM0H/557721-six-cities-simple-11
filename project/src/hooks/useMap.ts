@@ -11,10 +11,10 @@ function useMap(mapRef: React.MutableRefObject<HTMLElement | null>, location: Lo
     if (mapRef.current !== null && !isRenderedRef.current) {
       const instance = new Map(mapRef.current, {
         center: {
-          lat: location.lat,
-          lng: location.lng,
+          lat: location.latitude,
+          lng: location.longitude,
         },
-        zoom: location.zoom
+        zoom: 13
       });
 
       const layer = new TileLayer(
