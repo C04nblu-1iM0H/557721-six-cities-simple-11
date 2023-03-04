@@ -305,4 +305,244 @@ export const offers: OfferType[] = [
       zoom: 8,
     }
   },
+  {
+    id:8,
+    city: {
+      location: {
+        latitude: 48.85341,
+        longitude: 2.3488,
+        zoom: 10,
+      },
+      name: 'Paris',
+    },
+    images: ['https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/cb/6e/stairs.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/cb/af/breakfast-room.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/c4/cd/superior-double-room.jpg?w=1200&h=-1&s=1'
+    ],
+    isPremium: false,
+    previewImage: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/75/0b/ac/location-madison-hotel.jpg?w=1200&h=-1&s=1',
+    price:673,
+    rating: 4,
+    title:'Hotel Malte - Astotel',
+    typeOfplacement:'Hotel',
+    bedrooms:2,
+    maxAduts:5,
+    insides:[
+      'Wifi','Transfer','Parking space','Heating','Kitchen','Fridge',
+      'Washing machine','Coffee machine','Dishwasher', 'Shower/Bath',
+      'Mini-bar','TV','Cable TV','Fan','Wardrobe/Closet', 'Non-smoking rooms'
+    ],
+    host:{
+      avatar:'https://i.pinimg.com/564x/c7/ad/85/c7ad851ccc736e96814fa3c595fcba88.jpg',
+      id:7,
+      isPro: false,
+      name:'Mary',
+    },
+    description:'Whether you want to shop in the heart of the department store neighbourhood or visit one of the main business centres of Paris, Malta Hotel is the place to be.',
+    location: {
+      latitude: 48.75341,
+      longitude: 2.3688,
+      zoom: 8,
+    }
+  },
+  {
+    id:9,
+    city: {
+      location: {
+        latitude: 48.85341,
+        longitude: 2.3488,
+        zoom: 10,
+      },
+      name: 'Paris',
+    },
+    images: ['https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/cb/6e/stairs.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/cb/af/breakfast-room.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/c4/cd/superior-double-room.jpg?w=1200&h=-1&s=1'
+    ],
+    isPremium: false,
+    previewImage: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/75/0b/ac/location-madison-hotel.jpg?w=1200&h=-1&s=1',
+    price:673,
+    rating: 4,
+    title:'Hotel Malte - Astotel',
+    typeOfplacement:'Hotel',
+    bedrooms:2,
+    maxAduts:5,
+    insides:[
+      'Wifi','Transfer','Parking space','Heating','Kitchen','Fridge',
+      'Washing machine','Coffee machine','Dishwasher', 'Shower/Bath',
+      'Mini-bar','TV','Cable TV','Fan','Wardrobe/Closet', 'Non-smoking rooms'
+    ],
+    host:{
+      avatar:'https://i.pinimg.com/564x/c7/ad/85/c7ad851ccc736e96814fa3c595fcba88.jpg',
+      id:7,
+      isPro: false,
+      name:'Mary',
+    },
+    description:'Whether you want to shop in the heart of the department store neighbourhood or visit one of the main business centres of Paris, Malta Hotel is the place to be.',
+    location: {
+      latitude: 48.75341,
+      longitude: 2.3688,
+      zoom: 8,
+    }
+  },
+  {
+    id:10,
+    city: {
+      location: {
+        latitude: 48.85341,
+        longitude: 2.3488,
+        zoom: 10,
+      },
+      name: 'Paris',
+    },
+    images: ['https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/cb/6e/stairs.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/cb/af/breakfast-room.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/c4/cd/superior-double-room.jpg?w=1200&h=-1&s=1'
+    ],
+    isPremium: false,
+    previewImage: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/75/0b/ac/location-madison-hotel.jpg?w=1200&h=-1&s=1',
+    price:673,
+    rating: 4,
+    title:'Hotel Malte - Astotel',
+    typeOfplacement:'Hotel',
+    bedrooms:2,
+    maxAduts:5,
+    insides:[
+      'Wifi','Transfer','Parking space','Heating','Kitchen','Fridge',
+      'Washing machine','Coffee machine','Dishwasher', 'Shower/Bath',
+      'Mini-bar','TV','Cable TV','Fan','Wardrobe/Closet', 'Non-smoking rooms'
+    ],
+    host:{
+      avatar:'https://i.pinimg.com/564x/c7/ad/85/c7ad851ccc736e96814fa3c595fcba88.jpg',
+      id:7,
+      isPro: false,
+      name:'Mary',
+    },
+    description:'Whether you want to shop in the heart of the department store neighbourhood or visit one of the main business centres of Paris, Malta Hotel is the place to be.',
+    location: {
+      latitude: 48.75341,
+      longitude: 2.3688,
+      zoom: 8,
+    }
+  },
+  {
+    id:11,
+    city: {
+      location: {
+        latitude: 48.85341,
+        longitude: 2.3488,
+        zoom: 10,
+      },
+      name: 'Paris',
+    },
+    images: ['https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/cb/6e/stairs.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/cb/af/breakfast-room.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/c4/cd/superior-double-room.jpg?w=1200&h=-1&s=1'
+    ],
+    isPremium: false,
+    previewImage: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/75/0b/ac/location-madison-hotel.jpg?w=1200&h=-1&s=1',
+    price:673,
+    rating: 4,
+    title:'Hotel Malte - Astotel',
+    typeOfplacement:'Hotel',
+    bedrooms:2,
+    maxAduts:5,
+    insides:[
+      'Wifi','Transfer','Parking space','Heating','Kitchen','Fridge',
+      'Washing machine','Coffee machine','Dishwasher', 'Shower/Bath',
+      'Mini-bar','TV','Cable TV','Fan','Wardrobe/Closet', 'Non-smoking rooms'
+    ],
+    host:{
+      avatar:'https://i.pinimg.com/564x/c7/ad/85/c7ad851ccc736e96814fa3c595fcba88.jpg',
+      id:7,
+      isPro: false,
+      name:'Mary',
+    },
+    description:'Whether you want to shop in the heart of the department store neighbourhood or visit one of the main business centres of Paris, Malta Hotel is the place to be.',
+    location: {
+      latitude: 48.75341,
+      longitude: 2.3688,
+      zoom: 8,
+    }
+  },
+  {
+    id:12,
+    city: {
+      location: {
+        latitude: 48.85341,
+        longitude: 2.3488,
+        zoom: 10,
+      },
+      name: 'Paris',
+    },
+    images: ['https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/cb/6e/stairs.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/cb/af/breakfast-room.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/c4/cd/superior-double-room.jpg?w=1200&h=-1&s=1'
+    ],
+    isPremium: false,
+    previewImage: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/75/0b/ac/location-madison-hotel.jpg?w=1200&h=-1&s=1',
+    price:673,
+    rating: 4,
+    title:'Hotel Malte - Astotel',
+    typeOfplacement:'Hotel',
+    bedrooms:2,
+    maxAduts:5,
+    insides:[
+      'Wifi','Transfer','Parking space','Heating','Kitchen','Fridge',
+      'Washing machine','Coffee machine','Dishwasher', 'Shower/Bath',
+      'Mini-bar','TV','Cable TV','Fan','Wardrobe/Closet', 'Non-smoking rooms'
+    ],
+    host:{
+      avatar:'https://i.pinimg.com/564x/c7/ad/85/c7ad851ccc736e96814fa3c595fcba88.jpg',
+      id:7,
+      isPro: false,
+      name:'Mary',
+    },
+    description:'Whether you want to shop in the heart of the department store neighbourhood or visit one of the main business centres of Paris, Malta Hotel is the place to be.',
+    location: {
+      latitude: 48.75341,
+      longitude: 2.3688,
+      zoom: 8,
+    }
+  },
+  {
+    id:13,
+    city: {
+      location: {
+        latitude: 48.85341,
+        longitude: 2.3488,
+        zoom: 10,
+      },
+      name: 'Paris',
+    },
+    images: ['https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/cb/6e/stairs.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/cb/af/breakfast-room.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6d/c4/cd/superior-double-room.jpg?w=1200&h=-1&s=1'
+    ],
+    isPremium: false,
+    previewImage: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/75/0b/ac/location-madison-hotel.jpg?w=1200&h=-1&s=1',
+    price:673,
+    rating: 4,
+    title:'Hotel Malte - Astotel',
+    typeOfplacement:'Hotel',
+    bedrooms:2,
+    maxAduts:5,
+    insides:[
+      'Wifi','Transfer','Parking space','Heating','Kitchen','Fridge',
+      'Washing machine','Coffee machine','Dishwasher', 'Shower/Bath',
+      'Mini-bar','TV','Cable TV','Fan','Wardrobe/Closet', 'Non-smoking rooms'
+    ],
+    host:{
+      avatar:'https://i.pinimg.com/564x/c7/ad/85/c7ad851ccc736e96814fa3c595fcba88.jpg',
+      id:7,
+      isPro: false,
+      name:'Mary',
+    },
+    description:'Whether you want to shop in the heart of the department store neighbourhood or visit one of the main business centres of Paris, Malta Hotel is the place to be.',
+    location: {
+      latitude: 48.75341,
+      longitude: 2.3688,
+      zoom: 8,
+    }
+  },
 ];
