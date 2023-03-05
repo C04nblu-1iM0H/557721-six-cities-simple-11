@@ -140,7 +140,7 @@ function RoomScreen({offers, reviews}: Offers): JSX.Element {
             </div>
           </div>
           <section className="property__map map">
-            <Map offers={nextOffers} activeCard={activeCard} city={presentOffer.city} newMap="property"/>
+            <Map offers={nextOffers} activeCard={activeCard} currentCity={presentOffer.city} mapStyle={'property'}/>
           </section>
         </section>
         <div className="container">
