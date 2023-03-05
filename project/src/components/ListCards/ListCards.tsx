@@ -21,7 +21,7 @@ function ListCards({offers, currentCity}:Offers): JSX.Element {
       <div className="cities__places-container container">
         <section className="cities__places places">
           <h2 className="visually-hidden">Places</h2>
-          <b className="places__found"> places to stay in {currentCity.name}</b>
+          <b className="places__found">{offers.length} places to stay in {currentCity.name}</b>
           <form className="places__sorting" action="#" method="get">
             <span className="places__sorting-caption">Sort by</span>
             <span className="places__sorting-type" tabIndex={0}>
@@ -46,7 +46,9 @@ function ListCards({offers, currentCity}:Offers): JSX.Element {
           </div>
         </section>
         <div className="cities__right-section">
-          <Map offers={offers} activeCard={activeCard} city={currentCity} newMap="cities"/>
+          <section className='cities__map map'>
+            {currentCity.name && <Map offers={offers} activeCard={activeCard} currentCity={currentCity} mapStyle={'main'}/>}
+          </section>
         </div>
       </div>
     </div>

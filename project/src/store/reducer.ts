@@ -5,8 +5,8 @@ import {cityChangeAction, getOfRentalOffersActions} from './actions';
 import {getOffersByCity} from '../utils/utils';
 
 const initialState = {
-  city: cities[1],
-  offers: getOffersByCity(offers, cities[1])
+  city: cities[0],
+  offers: getOffersByCity(offers, cities[0])
 };
 
 const reducer = createReducer(initialState,
