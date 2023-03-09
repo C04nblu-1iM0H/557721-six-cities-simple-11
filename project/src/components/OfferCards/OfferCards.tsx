@@ -2,7 +2,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {OfferType} from '../../types/offer';
-import {calculateRating} from '../function/settings';
+import {calculateStarRating} from '../../utils/utils';
 
 type Offers = {
   offer: OfferType;
@@ -29,7 +29,7 @@ function OfferCards({offer, newCard}: Offers): JSX.Element {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${calculateRating(rating)}% `}} />
+            <span style={{width: `${calculateStarRating(rating)}% `}} />
             <span className="visually-hidden">{rating}</span>
           </div>
         </div>

@@ -1,20 +1,30 @@
+import {useAppSelector} from '../../hooks/index';
 import { useState } from 'react';
 import { OfferType } from '../../types/offer';
 import OfferCards from '../../components/OfferCards/OfferCards';
+import NotFoundOffers from '../notFoundOffers/notFoundOffers';
 import Map from '../map/map';
+import SortingOptions from '../SortingOptions/SortingOptions';
+import {getOffersByCity} from '../../utils/utils';
+import {SortOffersType} from '../../utils/sorting';
 import {City} from '../../types/city';
 
 type Offers = {
-    offers: OfferType[];
     currentCity: City;
 }
 
-function ListCards({offers, currentCity}:Offers): JSX.Element {
+function ListCards({currentCity}:Offers): JSX.Element {
   const [activeCard, setActiveCard] = useState<OfferType | undefined>(undefined);
-
   const handleActiveCard = (card: OfferType):void => {
     setActiveCard(card);
   };
+  let offers = useAppSelector((state) => getOffersByCity(state.offers, currentCity));
+  const sortType = useAppSelector((state) => state.sortType);
+  offers = SortOffersType(offers, sortType);
+
+  if(offers.length === 0){
+    return <NotFoundOffers currentCity={currentCity.name}/>;
+  }
 
   return(
     <div className="cities">
@@ -22,21 +32,7 @@ function ListCards({offers, currentCity}:Offers): JSX.Element {
         <section className="cities__places places">
           <h2 className="visually-hidden">Places</h2>
           <b className="places__found">{offers.length} places to stay in {currentCity.name}</b>
-          <form className="places__sorting" action="#" method="get">
-            <span className="places__sorting-caption">Sort by</span>
-            <span className="places__sorting-type" tabIndex={0}>
-                              Popular
-              <svg className="places__sorting-arrow" width={7} height={4}>
-                <use xlinkHref="#icon-arrow-select" />
-              </svg>
-            </span>
-            <ul className="places__options places__options--custom places__options--closed">
-              <li className="places__option places__option--active" tabIndex={0}>Popular</li>
-              <li className="places__option" tabIndex={0}>Price: low to high</li>
-              <li className="places__option" tabIndex={0}>Price: high to low</li>
-              <li className="places__option" tabIndex={0}>Top rated first</li>
-            </ul>
-          </form>
+          <SortingOptions/>
           <div className="cities__places-list places__list tabs__content">{
             offers.map((offer) => (
               <article className="cities__card place-card" key={offer.id} onMouseOver={() => handleActiveCard(offer)}>
@@ -47,7 +43,7 @@ function ListCards({offers, currentCity}:Offers): JSX.Element {
         </section>
         <div className="cities__right-section">
           <section className='cities__map map'>
-            {currentCity.name && <Map offers={offers} activeCard={activeCard} currentCity={currentCity} mapStyle={'main'}/>}
+            <Map offers={offers} activeCard={activeCard} currentCity={currentCity} mapStyle={'main'}/>
           </section>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import ReviewForm from '../fromReviews/from';
 import {Review} from '../../types/review';
-import {calculateRating} from '../function/settings';
+import {calculateStarRating} from '../../utils/utils';
 
 type ReviewProps = {
   reviews: Review[];
@@ -20,7 +20,7 @@ function Reviews({reviews}: ReviewProps): JSX.Element {
       <div className="reviews__info">
         <div className="reviews__rating rating">
           <div className="reviews__stars rating__stars">
-            <span style={{width: `${calculateRating(review.rating)}% `}}></span>
+            <span style={{width: `${calculateStarRating(review.rating)}% `}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
