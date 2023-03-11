@@ -1,7 +1,11 @@
 import {createAction} from '@reduxjs/toolkit';
-import {City} from '../types/city';
+import {Offers} from '../types/offer';
+import {AuthorizationStatus, SortingValueTypes} from '../const';
 
-export const cityChangeAction = createAction<{city: City}>('city/change');
-export const getOfRentalOffersActions = createAction('offers/get');
-export const sortOffersActions = createAction<{sortType: string}>('offers/sort');
+export const cityChangeAction = createAction<{city: string}>('city/change');
+export const setOffersDataLoadingStatus = createAction<boolean>('offers/etOffersDataLoadingStatus');
+export const sortOffersActions = createAction<{sortType: SortingValueTypes}>('offers/sort');
+export const loadOffersAction = createAction<Offers>('offers/load');
+export const requireAuthorizationAction = createAction<AuthorizationStatus>('user/requireAuthorization');
+export const setErrorAction = createAction<string | null>('app/setError');
 
