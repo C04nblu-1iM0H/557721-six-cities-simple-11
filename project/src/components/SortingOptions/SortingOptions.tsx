@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {SortingValue} from '../../const';
+import {SortingValueTypes} from '../../const';
 import { sortOffersActions } from '../../store/actions';
 
 function SortingOptions():JSX.Element{
@@ -10,7 +10,7 @@ function SortingOptions():JSX.Element{
   };
   const activeSort = useAppSelector((state) => state.sortType);
   const dispatch = useAppDispatch();
-  const sortingHandler = (sortType: string) => {
+  const sortingHandler = (sortType: SortingValueTypes) => {
     optionsHandler();
     if(sortType === activeSort){
       return;
@@ -28,7 +28,7 @@ function SortingOptions():JSX.Element{
         </svg>
       </span>
       <ul className={`places__options places__options--custom places__options--${openTheListOptions ? 'opened' : 'closed'}`}>
-        {Object.values(SortingValue).map((sortType) => (
+        {Object.values(SortingValueTypes).map((sortType) => (
           <li className={`places__option ${activeSort === sortType ? 'places__option--active' : '' } `}
             key={sortType}
             tabIndex={0}

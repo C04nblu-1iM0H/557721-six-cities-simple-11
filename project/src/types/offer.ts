@@ -27,3 +27,5 @@ export type OfferType = {
     };
 };
 
+export type Offers = OfferType[];
+

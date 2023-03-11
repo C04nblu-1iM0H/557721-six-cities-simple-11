@@ -8,18 +8,19 @@ import NotFoundScreen from '../../pages/not-fount-screen/not-found-screen';
 import ScrollToTop from '../scroll-to-top/scroll-to-top';
 import PageHead from '../../pages/page-head/page-head';
 import {Review} from '../../types/review';
-import {City} from '../../types/city';
-import { useAppDispatch } from '../../hooks/index';
-import { getOfRentalOffersActions } from '../../store/actions';
+import {useAppSelector} from '../../hooks';
+import LoadingScreen from '../LoadingScreen/LoadingScreen';
 
 type AppOffersProps = {
   reviews: Review[];
-  city: City[];
 }
 
-function App({reviews, city}:AppOffersProps): JSX.Element {
-  const dispatch = useAppDispatch();
-  dispatch(getOfRentalOffersActions());
+function App({reviews}:AppOffersProps): JSX.Element {
+  const isOffersDataLoading = useAppSelector((state) => state.isOffersDataLoading);
+  if (isOffersDataLoading) {
+    return (
+      <LoadingScreen />);
+  }
   return(
     <HelmetProvider>
       <BrowserRouter>
@@ -28,7 +29,7 @@ function App({reviews, city}:AppOffersProps): JSX.Element {
           <Route path="/" element={<PageHead />}>
             <Route
               index
-              element={<WelcomScreenMain cities={city}/>}
+              element={<WelcomScreenMain/>}
             />
             <Route
               path="*"

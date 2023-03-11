@@ -1,5 +1,5 @@
 import { OfferType } from '../types/offer';
-import { SortingValue } from '../const';
+import { SortingValueTypes } from '../const';
 
 const sortLowHight = (offers1: OfferType, offers2: OfferType): number => offers1.price - offers2.price;
 
@@ -30,13 +30,13 @@ const sortByRating = (offers1: OfferType, offers2: OfferType): number => {
 
 export const SortOffersType = (offers: OfferType[], type: string) =>{
   switch(type){
-    case SortingValue.Popular:
+    case SortingValueTypes.POPULAR:
       return offers;
-    case SortingValue.Low:
+    case SortingValueTypes.LOW:
       return offers.sort(sortLowHight);
-    case SortingValue.High:
+    case SortingValueTypes.HIGH:
       return offers.sort(sortHightLow);
-    case SortingValue.Top:
+    case SortingValueTypes.TOP:
       return offers.sort(sortByRating);
     default:
       return offers;
