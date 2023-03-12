@@ -1,7 +1,7 @@
 import {createReducer} from '@reduxjs/toolkit';
-import {cities} from '../mocks/cities';
+import {cities} from '../const';
 import {SortingValueTypes, AuthorizationStatus } from '../const';
-import {cityChangeAction, setOffersDataLoadingStatus , sortOffersActions, loadOffersAction, requireAuthorizationAction, setErrorAction, } from './actions';
+import {cityChangeAction, setOffersDataLoadingStatus , sortOffersActions, loadOffersAction, requireAuthorizationAction, setErrorAction, setUserEmail} from './actions';
 import {Offers} from '../types/offer';
 import { City } from '../types/city';
 
@@ -12,6 +12,7 @@ type InitialState = {
   authorizationStatus: AuthorizationStatus;
   isOffersDataLoading: boolean;
   error: string | null;
+  userEmail: string | null;
 }
 
 const initialState: InitialState = {
@@ -20,7 +21,8 @@ const initialState: InitialState = {
   sortType: SortingValueTypes.POPULAR,
   authorizationStatus: AuthorizationStatus.Unknown,
   isOffersDataLoading: false,
-  error: null
+  error: null,
+  userEmail: null,
 };
 
 const reducer = createReducer(initialState, (builder) => {
@@ -38,13 +40,13 @@ const reducer = createReducer(initialState, (builder) => {
       state.error = action.payload;
     })
     .addCase(cityChangeAction, (state, action) => {
-      const currentCity = cities.find((city) => action.payload.city === city.name);
-      if (currentCity) {
-        state.city = currentCity;
-      }
+      state.city = action.payload;
     })
     .addCase(sortOffersActions, (state, action) => {
       state.sortType = action.payload.sortType;
+    })
+    .addCase(setUserEmail, (state, action) => {
+      state.userEmail = action.payload;
     });
 });
 
