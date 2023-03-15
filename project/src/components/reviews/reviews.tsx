@@ -1,12 +1,17 @@
-import ReviewForm from '../fromReviews/from';
-import {Review} from '../../types/review';
+import ReviewForm from '../formReviews/form';
+import {useAppSelector} from '../../hooks';
 import {calculateStarRating} from '../../utils/utils';
+import {AuthorizationStatus} from '../../const';
 
 type ReviewProps = {
-  reviews: Review[];
+  currentId: number;
 }
 
-function Reviews({reviews}: ReviewProps): JSX.Element {
+function Reviews({currentId}: ReviewProps): JSX.Element {
+  const reviews = useAppSelector((state) => state.currentComments);
+
+  const authorizationStatus = useAppSelector((state) => state.authorizationStatus);
+
   const reviewsItems = reviews.map((review) => (
     <li className="reviews__item" key={review.id}>
       <div className="reviews__user user">
@@ -20,7 +25,7 @@ function Reviews({reviews}: ReviewProps): JSX.Element {
       <div className="reviews__info">
         <div className="reviews__rating rating">
           <div className="reviews__stars rating__stars">
-            <span style={{width: `${calculateStarRating(review.rating)}% `}}></span>
+            <span style={{width: `${calculateStarRating(review.rating)}%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
@@ -38,7 +43,9 @@ function Reviews({reviews}: ReviewProps): JSX.Element {
       <ul className="reviews__list">
         {reviewsItems}
       </ul>
-      <ReviewForm />
+      {authorizationStatus === AuthorizationStatus.Auth ?
+        <ReviewForm currentId={currentId}/>
+        : ''}
     </section>
   );
 }

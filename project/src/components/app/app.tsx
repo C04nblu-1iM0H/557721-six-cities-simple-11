@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import {HelmetProvider} from 'react-helmet-async';
 import {AppRoute, AuthorizationStatus} from '../../const';
 import WelcomScreenMain from '../../pages/welcom-screen/welcom-screen';
@@ -7,15 +7,12 @@ import RoomScreen from '../../pages/room-screen/room-screen';
 import NotFoundScreen from '../../pages/not-fount-screen/not-found-screen';
 import ScrollToTop from '../scroll-to-top/scroll-to-top';
 import PageHead from '../../pages/page-head/page-head';
-import {Review} from '../../types/review';
 import {useAppSelector} from '../../hooks';
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
+import HistoryRouter from '../historyRoute/historyRoute';
+import browserHistory from '../../browserHistory';
 
-type AppOffersProps = {
-  reviews: Review[];
-}
-
-function App({reviews}:AppOffersProps): JSX.Element {
+function App(): JSX.Element {
   const isOffersDataLoading = useAppSelector((state) => state.isOffersDataLoading);
   const authorizationStatus = useAppSelector((state) => state.authorizationStatus);
   if (authorizationStatus === AuthorizationStatus.Unknown || isOffersDataLoading) {
@@ -24,7 +21,7 @@ function App({reviews}:AppOffersProps): JSX.Element {
   }
   return(
     <HelmetProvider>
-      <BrowserRouter>
+      <HistoryRouter history={browserHistory}>
         <ScrollToTop/>
         <Routes>
           <Route path="/" element={<PageHead />}>
@@ -33,13 +30,17 @@ function App({reviews}:AppOffersProps): JSX.Element {
               element={<WelcomScreenMain/>}
             />
             <Route
-              path="*"
+              path={AppRoute.NotFound}
               element={<NotFoundScreen />}
             />
             <Route path={AppRoute.Offers}>
               <Route
                 path={AppRoute.Room}
-                element={<RoomScreen reviews={reviews} />}
+                element={<RoomScreen />}
+              />
+              <Route
+                path={AppRoute.NotFound}
+                element={<NotFoundScreen />}
               />
             </Route>
           </Route>
@@ -48,7 +49,7 @@ function App({reviews}:AppOffersProps): JSX.Element {
             element={<LoginScreen />}
           />
         </Routes>
-      </BrowserRouter>
+      </HistoryRouter>
     </HelmetProvider>
   );
 }

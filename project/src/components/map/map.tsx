@@ -8,8 +8,8 @@ import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../../const';
 
 type PageProps = {
   offers: OfferType[];
-  activeCard: OfferType | undefined;
-  currentCity: City;
+  activeCard?: OfferType | undefined;
+  city: City;
   mapStyle:string;
 }
 
@@ -25,13 +25,13 @@ const currentCustomIcon = new Icon({
   iconAnchor: [20, 40]
 });
 
-function Map({offers, activeCard, currentCity, mapStyle}: PageProps): JSX.Element {
+function Map({offers, activeCard, city, mapStyle}: PageProps): JSX.Element {
   const mapRef = useRef(null);
-  const map = useMap(mapRef, currentCity.location);
+  const map = useMap(mapRef, city.location);
 
   useEffect(() => {
     if (map) {
-      map.setView([currentCity.location.latitude, currentCity.location.longitude]);
+      map.setView([city.location.latitude, city.location.longitude]);
       offers.forEach((offer) => {
         const marker = new Marker({
           lat: offer.location.latitude,
@@ -47,7 +47,7 @@ function Map({offers, activeCard, currentCity, mapStyle}: PageProps): JSX.Elemen
           .addTo(map);
       });
     }
-  }, [map, offers, activeCard, currentCity.location]);
+  }, [map, offers, activeCard, city.location]);
   return <div className={`cities_${mapStyle}`} ref={mapRef}></div>;
 
 }

@@ -3,19 +3,21 @@ export enum AppRoute{
     Login = '/login',
     Root = '/',
     Room = ':id',
-    Offers = '/offer'
+    Offers = '/offer',
+    NotFound = '*',
 }
 
 export enum AuthorizationStatus {
   Auth = 'AUTH',
   NoAuth = 'NO_AUTH',
-  Unknown = 'UNKNOWN'
+  Unknown = 'UNKNOWN',
 }
 
 export enum APIRoute {
   Offers = '/hotels',
   Login = '/login',
-  Logout = '/logout'
+  Logout = '/logout',
+  Comments = '/comments',
 }
 
 export const TIMEOUT_SHOW_ERROR = 2000;

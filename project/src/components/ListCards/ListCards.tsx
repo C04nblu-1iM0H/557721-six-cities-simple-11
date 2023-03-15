@@ -43,7 +43,7 @@ function ListCards({currentCity}:Offers): JSX.Element {
         </section>
         <div className="cities__right-section">
           <section className='cities__map map'>
-            <Map offers={offers} activeCard={activeCard} currentCity={currentCity} mapStyle={'main'}/>
+            <Map offers={offers} activeCard={activeCard} city={currentCity} mapStyle={'main'}/>
           </section>
         </div>
       </div>
