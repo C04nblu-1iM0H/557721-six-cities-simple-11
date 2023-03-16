@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom';
 import {useAppDispatch} from '../../hooks/index';
-import {cityChangeAction} from '../../store/actions';
-import { City } from '../../types/city';
+import {useAppSelector} from '../../hooks';
+import {changeCity} from '../../store/app-process/app-process';
 import {cities} from '../../const';
+import {getCity} from '../../store/app-process/selectors';
 
-type CityListProps ={
-currentCity:City;
-}
 
-function CityList({currentCity}:CityListProps):JSX.Element{
+function CityList():JSX.Element{
   const dispatch = useAppDispatch();
+  const currentCity = useAppSelector(getCity);
 
   return(
     <section className="locations container">
@@ -19,7 +18,7 @@ function CityList({currentCity}:CityListProps):JSX.Element{
             <Link
               className={`locations__item-link tabs__item ${city.name === currentCity.name ? 'tabs__item--active' : '' }`}
               onClick={()=>{
-                dispatch(cityChangeAction(city));
+                dispatch(changeCity(city));
               }}
               to=''
             >

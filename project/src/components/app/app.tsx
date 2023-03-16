@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import {HelmetProvider} from 'react-helmet-async';
-import {AppRoute, AuthorizationStatus} from '../../const';
+import {AppRoute} from '../../const';
 import WelcomScreenMain from '../../pages/welcom-screen/welcom-screen';
 import LoginScreen from '../../pages/login-screen/login-screen';
 import RoomScreen from '../../pages/room-screen/room-screen';
@@ -11,14 +11,18 @@ import {useAppSelector} from '../../hooks';
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import HistoryRouter from '../historyRoute/historyRoute';
 import browserHistory from '../../browserHistory';
+import {getAuthCheckedStatus} from '../../store/user-process/selectors';
+import {getOffersDataLoadingStatus} from '../../store/offers-data/selectors';
 
 function App(): JSX.Element {
-  const isOffersDataLoading = useAppSelector((state) => state.isOffersDataLoading);
-  const authorizationStatus = useAppSelector((state) => state.authorizationStatus);
-  if (authorizationStatus === AuthorizationStatus.Unknown || isOffersDataLoading) {
+  const isAuthChecked = useAppSelector(getAuthCheckedStatus);
+  const isOffersDataLoading = useAppSelector(getOffersDataLoadingStatus);
+
+  if (!isAuthChecked || isOffersDataLoading) {
     return (
       <LoadingScreen />);
   }
+
   return(
     <HelmetProvider>
       <HistoryRouter history={browserHistory}>

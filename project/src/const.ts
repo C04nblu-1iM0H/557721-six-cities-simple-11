@@ -20,6 +20,13 @@ export enum APIRoute {
   Comments = '/comments',
 }
 
+export enum NameSpace {
+  Offers = 'OFFERS',
+  Comments = 'COMMENTS',
+  User = 'USER',
+  App = 'APP',
+}
+
 export const TIMEOUT_SHOW_ERROR = 2000;
 
 export const cities: readonly City[] = [
