@@ -1,21 +1,22 @@
 import {useState} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {SortingValueTypes} from '../../const';
-import { sortOffersActions } from '../../store/actions';
+import {sortOffers} from '../../store/app-process/app-process';
+import {getSortTypes} from '../../store/app-process/selectors';
 
 function SortingOptions():JSX.Element{
   const [openTheListOptions, setOptionsListState] = useState(false);
   const optionsHandler = () => {
     setOptionsListState(!openTheListOptions);
   };
-  const activeSort = useAppSelector((state) => state.sortType);
+  const activeSort = useAppSelector(getSortTypes);
   const dispatch = useAppDispatch();
   const sortingHandler = (sortType: SortingValueTypes) => {
     optionsHandler();
     if(sortType === activeSort){
       return;
     }
-    dispatch(sortOffersActions({sortType}));
+    dispatch(sortOffers({sortType}));
 
   };
   return(

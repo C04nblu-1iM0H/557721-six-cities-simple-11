@@ -7,25 +7,26 @@ import Map from '../map/map';
 import SortingOptions from '../SortingOptions/SortingOptions';
 import {getOffersByCity} from '../../utils/utils';
 import {SortOffersType} from '../../utils/sorting';
-import {City} from '../../types/city';
+import {getSortTypes} from '../../store/app-process/selectors';
+import {getOffers} from '../../store/offers-data/selectors';
+import { getCity } from '../../store/app-process/selectors';
 
-type Offers = {
-    currentCity: City;
-}
 
-function ListCards({currentCity}:Offers): JSX.Element {
+function ListCards(): JSX.Element {
+  const currentCity = useAppSelector(getCity);
+  const allOffers = useAppSelector(getOffers);
   const [activeCard, setActiveCard] = useState<OfferType | undefined>(undefined);
-  const handleActiveCard = (card: OfferType):void => {
-    setActiveCard(card);
-  };
-  let offers = useAppSelector((state) => getOffersByCity(state.offers, currentCity));
-  const sortType = useAppSelector((state) => state.sortType);
+  let offers = useAppSelector((state) => getOffersByCity(allOffers, currentCity));
+  const sortType = useAppSelector(getSortTypes);
   offers = SortOffersType(offers, sortType);
 
   if(offers.length === 0){
     return <NotFoundOffers currentCity={currentCity.name}/>;
   }
 
+  const handleActiveCard = (card: OfferType):void => {
+    setActiveCard(card);
+  };
   return(
     <div className="cities">
       <div className="cities__places-container container">

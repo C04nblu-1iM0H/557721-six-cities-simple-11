@@ -2,21 +2,25 @@ import ReviewForm from '../formReviews/form';
 import {useAppSelector} from '../../hooks';
 import {calculateStarRating} from '../../utils/utils';
 import {AuthorizationStatus} from '../../const';
+import {getCurrentComments} from '../../store/comments-data/selectors';
+import {getAuthorizationStatus} from '../../store/user-process/selectors';
+import {formatDate} from '../../utils/utils';
 
-type ReviewProps = {
+type propType = {
   currentId: number;
 }
 
-function Reviews({currentId}: ReviewProps): JSX.Element {
-  const reviews = useAppSelector((state) => state.currentComments);
+function Reviews({currentId}: propType): JSX.Element {
 
-  const authorizationStatus = useAppSelector((state) => state.authorizationStatus);
+  const reviews = useAppSelector(getCurrentComments);
+
+  const authorizationStatus = useAppSelector(getAuthorizationStatus);
 
   const reviewsItems = reviews.map((review) => (
     <li className="reviews__item" key={review.id}>
       <div className="reviews__user user">
         <div className="reviews__avatar-wrapper user__avatar-wrapper">
-          <img className="reviews__avatar user__avatar" src={review.user.avatar} width="54" height="54" alt="Reviews avatar"/>
+          <img className="reviews__avatar user__avatar" src={review.user.avatarUrl} width="54" height="54" alt="Reviews avatar"/>
         </div>
         <span className="reviews__user-name">
           {review.user.name}
@@ -32,7 +36,7 @@ function Reviews({currentId}: ReviewProps): JSX.Element {
         <p className="reviews__text">
           {review.comment}
         </p>
-        <time className="reviews__time" dateTime={review.date}>{review.date}</time>
+        <time className="reviews__time" dateTime={review.date}>{formatDate(review.date)}</time>
       </div>
     </li>
   ));

@@ -12,9 +12,9 @@ export type OfferType = {
     typeOfplacement:string;
     bedrooms:number;
     maxAduts:number;
-    insides:string[];
+    goods:string[];
     host:{
-        avatar:string;
+        avatarUrl:string;
         id:number;
         isPro:boolean;
         name:string;

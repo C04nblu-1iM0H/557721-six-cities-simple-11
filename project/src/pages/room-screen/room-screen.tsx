@@ -8,6 +8,7 @@ import LoadingScreen from '../../components/LoadingScreen/LoadingScreen';
 import Map from '../../components/map/map';
 import {fetchCommentsAction, fetchNearOffersAction, fetchOfferAction} from '../../store/api-actions';
 import {store} from '../../store/index';
+import {getCurrentNearOffers, getCurrentOffer} from '../../store/offers-data/selectors';
 
 function RoomScreen(): JSX.Element {
   const params = useParams();
@@ -17,8 +18,8 @@ function RoomScreen(): JSX.Element {
     store.dispatch(fetchNearOffersAction(Number(params.id)));
   },[params.id]);
 
-  const currentOffer = useAppSelector((state) => state.currentOffer);
-  const nearOffers = useAppSelector((state) => state.currentNearOffers);
+  const currentOffer = useAppSelector(getCurrentOffer);
+  const nearOffers = useAppSelector(getCurrentNearOffers);
 
   if (!currentOffer) {
     return (
@@ -26,7 +27,7 @@ function RoomScreen(): JSX.Element {
     );
   }
 
-  const {title, typeOfplacement, bedrooms, description, price, insides, images, host, isPremium, rating, maxAduts} = currentOffer;
+  const {title, typeOfplacement, bedrooms, description, price, goods, images, host, isPremium, rating, maxAduts} = currentOffer;
 
   return(
     <main className="page__main page__main--property">
@@ -76,9 +77,9 @@ function RoomScreen(): JSX.Element {
               <h2 className="property__inside-title">What&apos;s inside</h2>
               <ul className="property__inside-list">
                 {
-                  insides.map((insid) => (
-                    <li className="property__inside-item" key={insid}>
-                      {insid}
+                  goods.map((good)=>(
+                    <li className="property__inside-item" key={good}>
+                      {good}
                     </li>
                   ))
                 }
@@ -88,7 +89,7 @@ function RoomScreen(): JSX.Element {
               <h2 className="property__host-title">Meet the host</h2>
               <div className="property__host-user user">
                 <div className={`property__avatar-wrapper ${host.isPro ? 'property__avatar-wrapper--pro' : '' } user__avatar-wrapper`}>
-                  <img className="property__avatar user__avatar" src={host.avatar} width="74" height="74" alt="avatar"/>
+                  <img className="property__avatar user__avatar" src={host.avatarUrl} width="74" height="74" alt="avatar"/>
                 </div>
                 <span className="property__user-name">
                   {host.name}
