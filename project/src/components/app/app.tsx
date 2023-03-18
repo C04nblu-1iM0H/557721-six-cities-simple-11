@@ -12,15 +12,23 @@ import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import HistoryRouter from '../historyRoute/historyRoute';
 import browserHistory from '../../browserHistory';
 import {getAuthCheckedStatus} from '../../store/user-process/selectors';
-import {getOffersDataLoadingStatus} from '../../store/offers-data/selectors';
+import {getErrorStatus, getOffersDataLoadingStatus} from '../../store/offers-data/selectors';
+import ErrorScreen from '../../pages/error-screen/error-screen';
 
 function App(): JSX.Element {
   const isAuthChecked = useAppSelector(getAuthCheckedStatus);
   const isOffersDataLoading = useAppSelector(getOffersDataLoadingStatus);
+  const hasError = useAppSelector(getErrorStatus);
 
   if (!isAuthChecked || isOffersDataLoading) {
     return (
       <LoadingScreen />);
+  }
+
+  if (hasError) {
+    return (
+      <ErrorScreen />
+    );
   }
 
   return(

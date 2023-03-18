@@ -23,6 +23,7 @@ export type OffersData = {
   offers: Offers;
   currentOffer: OfferType | null;
   currentNearOffers: Offers;
+  hasError: boolean;
 }
 
 export type CommentsData = {
