@@ -1,16 +1,15 @@
 import {Icon, Marker} from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import {OfferType} from '../../types/offer';
+import {OfferType, Offers} from '../../types/offer';
 import {City} from '../../types/city';
 import {useRef, useEffect} from 'react';
 import useMap from '../../hooks/useMap';
 import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../../const';
 
 type PageProps = {
-  offers: OfferType[];
+  offers: Offers;
   activeCard?: OfferType | undefined;
   city: City;
-  mapStyle:string;
 }
 
 const defaultCustomIcon = new Icon({
@@ -25,9 +24,9 @@ const currentCustomIcon = new Icon({
   iconAnchor: [20, 40]
 });
 
-function Map({offers, activeCard, city, mapStyle}: PageProps): JSX.Element {
+function Map({offers, activeCard, city}: PageProps): JSX.Element {
   const mapRef = useRef(null);
-  const map = useMap(mapRef, city.location);
+  const map = useMap(mapRef, city);
 
   useEffect(() => {
     if (map) {
@@ -48,7 +47,7 @@ function Map({offers, activeCard, city, mapStyle}: PageProps): JSX.Element {
       });
     }
   }, [map, offers, activeCard, city.location]);
-  return <div className={`cities_${mapStyle}`} ref={mapRef}></div>;
+  return <div ref={mapRef} data-testid="map"></div>;
 
 }
 

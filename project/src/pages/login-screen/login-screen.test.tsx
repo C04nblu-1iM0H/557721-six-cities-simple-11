@@ -5,7 +5,8 @@ import {createMemoryHistory} from 'history';
 import HistoryRouter from '../../components/historyRoute/historyRoute';
 import {AuthorizationStatus} from '../../const';
 import LoginPage from './login-screen';
-import { HelmetProvider } from 'react-helmet-async';
+import {HelmetProvider} from 'react-helmet-async';
+import userEvent from '@testing-library/user-event';
 
 const mockStore = configureMockStore();
 
@@ -17,7 +18,8 @@ const store = mockStore({
 });
 
 describe('Component: LoginPage', () => {
-  it('should render correctly', () => {
+  it('should render correctly', async () => {
+    history.push('/login');
     render(
       <Provider store={store}>
         <HistoryRouter history={history}>
@@ -28,7 +30,13 @@ describe('Component: LoginPage', () => {
       </Provider>
     );
 
-    expect(screen.getByText('E-mail')).toBeInTheDocument();
-    expect(screen.getByText('Password')).toBeInTheDocument();
+    expect(screen.getByText(/E-mail/i)).toBeInTheDocument();
+    expect(screen.getByText(/Password/i)).toBeInTheDocument();
+
+    await userEvent.type(screen.getByTestId('email'), 'test@gmail.com');
+    await userEvent.type(screen.getByTestId('password'), '12345678');
+
+    expect(screen.getByDisplayValue(/test@gmail.com/i)).toBeInTheDocument();
+    expect(screen.getByDisplayValue(/12345678/i)).toBeInTheDocument();
   });
 });
