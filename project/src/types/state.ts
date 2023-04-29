@@ -10,7 +10,6 @@ export type State = ReturnType<typeof store.getState>;
 export type AppProcess = {
   city: City;
   sortType: SortingValueTypes;
-  error: string | null;
   userEmail: string | null;
 }
 
